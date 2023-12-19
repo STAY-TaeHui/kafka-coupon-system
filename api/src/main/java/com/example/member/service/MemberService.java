@@ -1,20 +1,18 @@
-package com.example.api.service;
+package com.example.member.service;
 
-import com.example.api.domain.Coupon;
-import com.example.api.producer.CouponCreateProducer;
-import com.example.api.repository.CouponCountRepository;
-import com.example.api.repository.CouponRepository;
-import com.example.member.controller.MemberDto;
+import com.example.member.producer.CouponCreateProducer;
+import com.example.member.repository.CouponCountRepository;
+import com.example.member.repository.CouponRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ApplyService
+public class MemberService
 {
     private final CouponRepository couponRepository;
     private final CouponCountRepository couponCountRepository;
     private final CouponCreateProducer couponCreateProducer;
 
-    public ApplyService(CouponRepository couponRepository, CouponCountRepository couponCountRepository, CouponCreateProducer couponCreateProducer)
+    public MemberService(CouponRepository couponRepository, CouponCountRepository couponCountRepository, CouponCreateProducer couponCreateProducer)
     {
         this.couponRepository = couponRepository;
         this.couponCountRepository = couponCountRepository;
@@ -39,10 +37,5 @@ public class ApplyService
 
 //        couponRepository.save(new Coupon(userId));
          couponCreateProducer.create(userId);
-    }
-
-    public void apply(MemberDto memberDto)
-    {
-
     }
 }
