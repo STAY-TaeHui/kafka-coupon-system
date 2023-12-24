@@ -6,26 +6,26 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import com.example.api.repository.CouponRepository;
+import com.example.api.repository.ApiCouponRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApplyServiceTest
+class ApiCouponServiceTest
 {
     @Autowired
     private ApplyService applyService;
 
     @Autowired
-    private CouponRepository couponRepository;
+    private ApiCouponRepository apiCouponRepository;
 
     @Test
     void 한번에_한_쿠폰만_발급()
     {
         applyService.apply(1L);
 
-        long count = couponRepository.count();
+        long count = apiCouponRepository.count();
 
         assertThat(count).isEqualTo(1);
     }
@@ -60,7 +60,7 @@ class ApplyServiceTest
         //!! DB에 부하는 줄여줄 수 있으나, 데이터 간에 시간 텀이 발생한다.
         Thread.sleep(10000);
 
-        long count = couponRepository.count();
+        long count = apiCouponRepository.count();
 
         assertThat(count).isEqualTo(100);
         //FAIL

@@ -8,7 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Coupon
+public class ApiCoupon
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,11 +17,11 @@ public class Coupon
     private String couponName;
     private LocalDateTime createDate;
 
-    public Coupon()
+    public ApiCoupon()
     {
     }
 
-    public Coupon(Long memberId, String couponName, LocalDateTime createDate)
+    public ApiCoupon(Long memberId, String couponName, LocalDateTime createDate)
     {
         this.memberId = memberId;
         this.couponName = couponName;

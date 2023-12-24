@@ -14,10 +14,9 @@ public class MemberController
         this.memberService = memberService;
     }
 
-    @PostMapping("/apply")
-    private void couponApply(User)
+    @PostMapping("/login")
+    private void couponApply(MemberDto memberDto)
     {
-
-        memberService.apply();
+        memberService.login(memberDto);
     }
 }

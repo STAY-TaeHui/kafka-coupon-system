@@ -1,4 +1,4 @@
-package com.example.member.repository;
+package com.example.coupon.repository;
 
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;

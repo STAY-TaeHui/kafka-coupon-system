@@ -1,5 +1,6 @@
 package com.example.member.domain;
 
+import com.example.member.controller.MemberDto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
@@ -11,14 +12,14 @@ public class Member
 
     private String memberName;
 
-    public Member() {
+    protected Member() {
 
     }
 
-    public Member(Long memberId, String memberName)
+    public Member(MemberDto memberDto)
     {
-        this.memberId = memberId;
-        this.memberName = memberName;
+        this.memberId = memberDto.getMemberId();
+        this.memberName = memberDto.getMemberName();
     }
 
 }

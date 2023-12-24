@@ -1,5 +1,12 @@
 package com.example.member.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class MemberDto
 {
     private Long memberId;
@@ -11,14 +18,17 @@ public class MemberDto
         this.memberId = memberId;
         this.memberName = memberName;
     }
+    public String toJson(){
 
-    public void setMemberId(Long memberId)
-    {
-        this.memberId = memberId;
-    }
-
-    public Long getMemberId()
-    {
-        return memberId;
+        ObjectMapper objectMapper = new ObjectMapper();
+        try
+        {
+            return objectMapper.writeValueAsString(this);
+        }
+        catch (JsonProcessingException e)
+        {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
     }
 }
